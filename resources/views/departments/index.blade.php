@@ -5,8 +5,8 @@
 
 @section('content')
 <div class="space-y-6">
-    <div class="flex justify-end">
-        <a href="{{ route('departments.create') }}" class="px-6 py-2.5 bg-gradient-to-l from-teal-600 to-teal-700 text-white rounded-xl font-semibold hover:from-teal-700 hover:to-teal-800 transition flex items-center gap-2">
+    <div class="flex justify-end" data-aos="fade-down" data-aos-delay="80">
+        <a href="{{ route('departments.create') }}" data-button-glow class="px-6 py-2.5 bg-gradient-to-l from-teal-600 to-teal-700 text-white rounded-xl font-semibold hover:from-teal-700 hover:to-teal-800 transition flex items-center gap-2">
             <i data-lucide="building-2" class="w-5 h-5"></i>
             إضافة قسم
         </a>
@@ -14,7 +14,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         @forelse($departments as $dept)
-            <a href="{{ route('departments.show', $dept) }}" class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-lg transition-all">
+            <a href="{{ route('departments.show', $dept) }}" class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-lg transition-all" data-aos="fade-up" data-aos-delay="{{ 120 + $loop->index * 50 }}">
                 <div class="p-5 border-b border-gray-100 flex items-start justify-between">
                     <div>
                         <p class="font-extrabold text-gray-800 text-lg">{{ $dept->name }}</p>

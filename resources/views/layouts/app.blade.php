@@ -8,6 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script>
         tailwind.config = {
             theme: {
@@ -66,16 +67,16 @@
         <div class="flex-1 flex flex-col overflow-hidden">
             @include('layouts.header')
 
-            <main class="flex-1 overflow-y-auto p-6">
+            <main class="page-shell flex-1 overflow-y-auto p-6" data-aos="fade-up" data-aos-delay="50">
                 @if(session('success'))
-                    <div class="mb-4 p-4 bg-green-100 border border-green-300 text-green-800 rounded-xl flex items-center gap-2">
+                    <div class="alert-box mb-4 p-4 bg-green-100 border border-green-300 text-green-800 rounded-xl flex items-center gap-2" data-aos="fade-down" data-aos-delay="80">
                         <i data-lucide="check-circle" class="w-5 h-5"></i>
                         {{ session('success') }}
                     </div>
                 @endif
 
                 @if($errors->any())
-                    <div class="mb-4 p-4 bg-red-100 border border-red-300 text-red-800 rounded-xl">
+                    <div class="alert-box mb-4 p-4 bg-red-100 border border-red-300 text-red-800 rounded-xl" data-aos="fade-down" data-aos-delay="80">
                         <ul class="list-disc list-inside">
                             @foreach($errors->all() as $error)
                                 <li>{{ $error }}</li>
@@ -84,7 +85,9 @@
                     </div>
                 @endif
 
-                @yield('content')
+                <div class="space-y-6" data-aos="fade-up" data-aos-delay="120">
+                    @yield('content')
+                </div>
             </main>
         </div>
     </div>

@@ -7,7 +7,7 @@
 <div class="space-y-6">
     <!-- Stats Cards -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-        <div class="stat-card bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+        <div class="stat-card bg-white rounded-2xl p-5 border border-gray-100 shadow-sm" data-aos="fade-up" data-aos-delay="80">
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-sm text-gray-500 font-medium">إجمالي المرضى</p>
@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div class="stat-card bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+        <div class="stat-card bg-white rounded-2xl p-5 border border-gray-100 shadow-sm" data-aos="fade-up" data-aos-delay="110">
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-sm text-gray-500 font-medium">الأطباء النشطون</p>
@@ -31,7 +31,7 @@
             </div>
         </div>
 
-        <div class="stat-card bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+        <div class="stat-card bg-white rounded-2xl p-5 border border-gray-100 shadow-sm" data-aos="fade-up" data-aos-delay="140">
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-sm text-gray-500 font-medium">مواعيد اليوم</p>
@@ -43,7 +43,7 @@
             </div>
         </div>
 
-        <div class="stat-card bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+        <div class="stat-card bg-white rounded-2xl p-5 border border-gray-100 shadow-sm" data-aos="fade-up" data-aos-delay="170">
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-sm text-gray-500 font-medium">إيرادات الشهر</p>
@@ -58,7 +58,7 @@
 
     <!-- Second Row Stats -->
     <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
-        <div class="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm flex items-center gap-4">
+        <div class="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm flex items-center gap-4" data-aos="fade-right" data-aos-delay="90">
             <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
                 <i data-lucide="clock" class="w-5 h-5 text-purple-600"></i>
             </div>
@@ -68,7 +68,7 @@
             </div>
         </div>
 
-        <div class="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm flex items-center gap-4">
+        <div class="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm flex items-center gap-4" data-aos="fade-right" data-aos-delay="120">
             <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
                 <i data-lucide="bed-double" class="w-5 h-5 text-red-600"></i>
             </div>
@@ -78,7 +78,7 @@
             </div>
         </div>
 
-        <div class="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm flex items-center gap-4">
+        <div class="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm flex items-center gap-4" data-aos="fade-right" data-aos-delay="150">
             <div class="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
                 <i data-lucide="alert-triangle" class="w-5 h-5 text-yellow-600"></i>
             </div>
@@ -88,7 +88,7 @@
             </div>
         </div>
 
-        <div class="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm flex items-center gap-4">
+        <div class="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm flex items-center gap-4" data-aos="fade-right" data-aos-delay="180">
             <div class="w-10 h-10 bg-cyan-100 rounded-lg flex items-center justify-center">
                 <i data-lucide="receipt" class="w-5 h-5 text-cyan-600"></i>
             </div>
@@ -101,7 +101,7 @@
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <!-- Today's Appointments -->
-        <div class="lg:col-span-2 bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+        <div class="lg:col-span-2 bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="120">
             <div class="p-5 border-b border-gray-100 flex items-center justify-between">
                 <h3 class="font-bold text-gray-800 flex items-center gap-2">
                     <i data-lucide="calendar" class="w-5 h-5 text-blue-600"></i>
@@ -169,7 +169,7 @@
         </div>
 
         <!-- Recent Patients -->
-        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-left" data-aos-delay="160">
             <div class="p-5 border-b border-gray-100 flex items-center justify-between">
                 <h3 class="font-bold text-gray-800 flex items-center gap-2">
                     <i data-lucide="user-plus" class="w-5 h-5 text-green-600"></i>
@@ -197,7 +197,7 @@
     </div>
 
     <!-- Weekly Chart -->
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5" data-aos="zoom-in" data-aos-delay="130">
         <h3 class="font-bold text-gray-800 mb-4 flex items-center gap-2">
             <i data-lucide="bar-chart-3" class="w-5 h-5 text-blue-600"></i>
             نشاط الأسبوع الماضي
@@ -217,7 +217,7 @@
     </div>
 
     <!-- Recent Appointments -->
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="170">
         <div class="p-5 border-b border-gray-100">
             <h3 class="font-bold text-gray-800 flex items-center gap-2">
                 <i data-lucide="list-ordered" class="w-5 h-5 text-purple-600"></i>

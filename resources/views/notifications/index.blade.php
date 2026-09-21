@@ -5,22 +5,22 @@
 
 @section('content')
 <div class="max-w-3xl mx-auto space-y-6">
-    <div class="flex justify-between items-center">
+    <div class="flex justify-between items-center" data-aos="fade-down" data-aos-delay="80">
         <p class="text-sm text-gray-500">
             {{ auth()->user()->notifications()->where('is_read', false)->count() }} إشعار غير مقروء
         </p>
         <form method="POST" action="{{ route('notifications.readAll') }}">
             @csrf
-            <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-xl text-sm font-semibold hover:bg-blue-700 transition">
+            <button type="submit" data-button-glow class="px-4 py-2 bg-blue-600 text-white rounded-xl text-sm font-semibold hover:bg-blue-700 transition">
                 تحديد الكل كمقروء
             </button>
         </form>
     </div>
 
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="120">
         <div class="divide-y divide-gray-100">
             @forelse($notifications as $notification)
-                <form method="POST" action="{{ route('notifications.read', $notification) }}" class="p-5 flex items-start gap-4 hover:bg-gray-50 transition {{ $notification->is_read ? 'opacity-60' : '' }}">
+                <form method="POST" action="{{ route('notifications.read', $notification) }}" class="p-5 flex items-start gap-4 hover:bg-gray-50 transition {{ $notification->is_read ? 'opacity-60' : '' }}" data-aos="fade-up" data-aos-delay="{{ 140 + $loop->index * 30 }}">
                     @csrf
                     <div class="w-11 h-11 rounded-xl flex items-center justify-center shrink-0
                         @if($notification->type == 'appointment') bg-blue-100 text-blue-600

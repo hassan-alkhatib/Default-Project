@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import 'aos/dist/aos.css';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -8,4 +9,108 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+:root {
+    --shadow-soft: 0 12px 32px rgba(15, 23, 42, 0.08);
+    --shadow-hover: 0 18px 38px rgba(37, 99, 235, 0.12);
+    --transition-base: 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: linear-gradient(180deg, #f8fbff 0%, #f4f7fb 100%);
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+    background: rgba(59, 130, 246, 0.18);
+}
+
+.sidebar-link,
+.stat-card,
+.bg-white,
+button,
+input,
+select,
+textarea,
+.table-card,
+.card-panel,
+.panel-block,
+.alert-box,
+.widget {
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base), background-color var(--transition-base), opacity var(--transition-base);
+}
+
+.sidebar-link {
+    position: relative;
+}
+
+.sidebar-link:hover {
+    transform: translateX(-4px);
+    box-shadow: 0 10px 18px rgba(37, 99, 235, 0.08);
+}
+
+.sidebar-link.active {
+    box-shadow: 0 12px 20px rgba(59, 130, 246, 0.18);
+}
+
+.stat-card:hover,
+.bg-white:hover,
+.card-panel:hover,
+.panel-block:hover,
+.widget:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+button:hover,
+.btn:hover {
+    transform: translateY(-1px) scale(1.01);
+}
+
+button:active,
+.btn:active {
+    transform: scale(0.99);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+    border-color: rgba(59, 130, 246, 0.5);
+}
+
+table tbody tr {
+    transition: background-color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+table tbody tr:hover {
+    background: rgba(59, 130, 246, 0.025);
+    transform: scale(1.002);
+}
+
+form {
+    will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }

@@ -5,9 +5,9 @@
 
 @section('content')
 <div class="space-y-6">
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5" data-aos="fade-down" data-aos-delay="80">
         <div class="flex flex-col md:flex-row gap-4 justify-between items-center">
-            <form method="GET" class="flex flex-col md:flex-row gap-3 flex-1">
+            <form method="GET" class="flex flex-col md:flex-row gap-3 flex-1" data-aos="fade-left" data-aos-delay="120">
                 <input type="text" name="search" value="{{ request('search') }}" placeholder="بحث بالاسم أو البريد..."
                        class="flex-1 px-4 py-2.5 border border-gray-300 rounded-xl">
                 <select name="role" class="px-4 py-2.5 border border-gray-300 rounded-xl">
@@ -25,14 +25,14 @@
                     بحث
                 </button>
             </form>
-            <a href="{{ route('users.create') }}" class="px-6 py-2.5 bg-gradient-to-l from-green-600 to-green-700 text-white rounded-xl font-semibold hover:from-green-700 hover:to-green-800 transition flex items-center gap-2">
+            <a href="{{ route('users.create') }}" data-button-glow class="px-6 py-2.5 bg-gradient-to-l from-green-600 to-green-700 text-white rounded-xl font-semibold hover:from-green-700 hover:to-green-800 transition flex items-center gap-2" data-aos="zoom-in" data-aos-delay="150">
                 <i data-lucide="user-plus" class="w-5 h-5"></i>
                 إضافة مستخدم
             </a>
         </div>
     </div>
 
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="170">
         <div class="overflow-x-auto">
             <table class="w-full">
                 <thead class="bg-gray-50">
@@ -47,7 +47,7 @@
                 </thead>
                 <tbody class="divide-y divide-gray-100">
                     @forelse($users as $user)
-                        <tr class="hover:bg-gray-50">
+                        <tr class="hover:bg-gray-50" data-aos="fade-up" data-aos-delay="{{ 190 + $loop->index * 30 }}">
                             <td class="px-5 py-3">
                                 <div class="flex items-center gap-3">
                                     <div class="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 text-white flex items-center justify-center text-xs font-bold">

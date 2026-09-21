@@ -6,7 +6,7 @@
 @section('content')
 <div class="space-y-6">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm" data-aos="fade-up" data-aos-delay="80">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
                     <i data-lucide="package-check" class="w-5 h-5 text-green-600"></i>
@@ -17,7 +17,7 @@
                 </div>
             </div>
         </div>
-        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm" data-aos="fade-up" data-aos-delay="120">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
                     <i data-lucide="alert-triangle" class="w-5 h-5 text-yellow-600"></i>
@@ -28,7 +28,7 @@
                 </div>
             </div>
         </div>
-        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm" data-aos="fade-up" data-aos-delay="160">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
                     <i data-lucide="package-x" class="w-5 h-5 text-red-600"></i>
@@ -41,9 +41,9 @@
         </div>
     </div>
 
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5" data-aos="fade-down" data-aos-delay="90">
         <div class="flex flex-col md:flex-row gap-4 justify-between items-center">
-            <form method="GET" class="flex flex-col md:flex-row gap-3 flex-1">
+            <form method="GET" class="flex flex-col md:flex-row gap-3 flex-1" data-aos="fade-left" data-aos-delay="130">
                 <input type="text" name="search" value="{{ request('search') }}" placeholder="بحث باسم أو رمز الصنف..."
                        class="flex-1 px-4 py-2.5 border border-gray-300 rounded-xl">
                 <select name="category" class="px-4 py-2.5 border border-gray-300 rounded-xl">
@@ -57,14 +57,14 @@
                     بحث
                 </button>
             </form>
-            <a href="{{ route('inventory.create') }}" class="px-6 py-2.5 bg-gradient-to-l from-amber-600 to-amber-700 text-white rounded-xl font-semibold hover:from-amber-700 hover:to-amber-800 transition flex items-center gap-2">
+            <a href="{{ route('inventory.create') }}" data-button-glow class="px-6 py-2.5 bg-gradient-to-l from-amber-600 to-amber-700 text-white rounded-xl font-semibold hover:from-amber-700 hover:to-amber-800 transition flex items-center gap-2" data-aos="zoom-in" data-aos-delay="160">
                 <i data-lucide="package-plus" class="w-5 h-5"></i>
                 إضافة صنف
             </a>
         </div>
     </div>
 
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="180">
         <div class="overflow-x-auto">
             <table class="w-full">
                 <thead class="bg-gray-50">
@@ -81,7 +81,7 @@
                 </thead>
                 <tbody class="divide-y divide-gray-100">
                     @forelse($inventory as $item)
-                        <tr class="hover:bg-gray-50 transition">
+                        <tr class="hover:bg-gray-50 transition" data-aos="fade-up" data-aos-delay="{{ 200 + $loop->index * 25 }}">
                             <td class="px-5 py-3 text-sm font-mono text-gray-600">{{ $item->item_code }}</td>
                             <td class="px-5 py-3 text-sm font-semibold text-gray-800">{{ $item->name }}</td>
                             <td class="px-5 py-3 text-sm text-gray-600">{{ $item->category }}</td>

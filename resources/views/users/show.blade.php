@@ -5,8 +5,8 @@
 
 @section('content')
 <div class="max-w-3xl mx-auto space-y-6">
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
-        <div class="bg-gradient-to-l from-blue-700 to-blue-900 p-8 text-white text-center">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="80">
+        <div class="bg-gradient-to-l from-blue-700 to-blue-900 p-8 text-white text-center" data-aos="fade-down" data-aos-delay="120">
             <div class="w-24 h-24 mx-auto rounded-full bg-white/20 flex items-center justify-center text-3xl font-extrabold ring-4 ring-white/30">
                 {{ strtoupper(substr($user->name, 0, 2)) }}
             </div>
@@ -17,7 +17,7 @@
             </span>
         </div>
 
-        <div class="p-6">
+        <div class="p-6" data-aos="fade-up" data-aos-delay="160">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div class="p-4 border rounded-xl bg-gray-50">
                     <p class="text-xs text-gray-500 font-medium mb-1">الدور</p>
@@ -37,7 +37,7 @@
                 </div>
             </div>
 
-            <div class="flex justify-between pt-5 mt-5 border-t border-gray-100">
+            <div class="flex justify-between pt-5 mt-5 border-t border-gray-100" data-aos="fade-up" data-aos-delay="200">
                 <a href="{{ route('users.index') }}" class="px-6 py-2.5 border border-gray-300 text-gray-700 rounded-xl font-medium hover:bg-gray-50 flex items-center gap-2">
                     <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     عودة للقائمة

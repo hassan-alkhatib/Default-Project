@@ -5,8 +5,8 @@
 
 @section('content')
 <div class="container mx-auto px-4">
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
-        <div class="bg-gradient-to-l from-blue-700 to-blue-900 p-6 text-white">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="80">
+        <div class="bg-gradient-to-l from-blue-700 to-blue-900 p-6 text-white" data-aos="fade-down" data-aos-delay="120">
             <div class="flex items-center justify-between">
                 <div>
                     <h2 class="text-2xl font-extrabold">{{ $medicalRecord->record_number }}</h2>
@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6" data-aos="fade-up" data-aos-delay="160">
             <div class="p-4 bg-gray-50 rounded-xl">
                 <p class="text-xs text-gray-500 mb-1">المريض</p>
                 <a href="{{ route('patients.show', $medicalRecord->patient) }}" class="font-semibold text-blue-600 hover:underline">
@@ -36,7 +36,7 @@
         </div>
 
         @if($medicalRecord->temperature || $medicalRecord->blood_pressure_systolic || $medicalRecord->heart_rate)
-        <div class="px-6 pb-6">
+        <div class="px-6 pb-6" data-aos="fade-up" data-aos-delay="200">
             <h3 class="font-bold text-gray-800 mb-3">العلامات الحيوية</h3>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 @if($medicalRecord->temperature)
@@ -67,7 +67,7 @@
         </div>
         @endif
 
-        <div class="px-6 pb-6 space-y-4">
+        <div class="px-6 pb-6 space-y-4" data-aos="fade-up" data-aos-delay="220">
             @if($medicalRecord->chief_complaint)
                 <div class="p-4 bg-gray-50 rounded-xl">
                     <p class="text-sm font-bold text-gray-700 mb-1">الشكوى:</p>
@@ -96,7 +96,7 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="200">
             <div class="p-5 border-b border-gray-100">
                 <h3 class="font-bold text-gray-800">الوصفات المرتبطة</h3>
             </div>
@@ -117,7 +117,7 @@
             </div>
         </div>
 
-        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="240">
             <div class="p-5 border-b border-gray-100">
                 <h3 class="font-bold text-gray-800">التحاليل المرتبطة</h3>
             </div>

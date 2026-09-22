@@ -5,8 +5,8 @@
 
 @section('content')
 <div class="space-y-6">
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
-        <div class="bg-gradient-to-l from-blue-700 to-blue-900 p-6 text-white">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="80">
+        <div class="bg-gradient-to-l from-blue-700 to-blue-900 p-6 text-white" data-aos="fade-down" data-aos-delay="120">
             <div class="flex items-center gap-5">
                 <div class="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center text-2xl font-bold">
                     {{ strtoupper(substr($doctor->first_name, 0, 1)) }}{{ strtoupper(substr($doctor->last_name, 0, 1)) }}
@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-5 p-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-5 p-6" data-aos="fade-up" data-aos-delay="160">
             <div class="p-4 bg-gray-50 rounded-xl">
                 <p class="text-xs text-gray-500 mb-1">رقم الرخصة</p>
                 <p class="font-semibold text-gray-800" dir="ltr">{{ $doctor->license_number }}</p>
@@ -44,14 +44,14 @@
         </div>
 
         @if($doctor->biography)
-            <div class="mx-6 mb-6 p-4 bg-gray-50 border border-gray-100 rounded-xl">
+            <div class="mx-6 mb-6 p-4 bg-gray-50 border border-gray-100 rounded-xl" data-aos="fade-up" data-aos-delay="200">
                 <p class="text-sm font-bold text-gray-700 mb-2 flex items-center gap-2"><i data-lucide="info" class="w-4 h-4"></i> السيرة الذاتية:</p>
                 <p class="text-sm text-gray-600">{{ $doctor->biography }}</p>
             </div>
         @endif
     </div>
 
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="220">
         <div class="p-5 border-b border-gray-100 flex items-center justify-between">
             <h3 class="font-bold text-gray-800 flex items-center gap-2">
                 <i data-lucide="calendar" class="w-5 h-5 text-blue-600"></i>
@@ -70,7 +70,7 @@
                 </thead>
                 <tbody class="divide-y divide-gray-100">
                     @forelse($todayAppointments as $appointment)
-                        <tr class="hover:bg-gray-50">
+                        <tr class="hover:bg-gray-50" data-aos="fade-up" data-aos-delay="{{ 180 + $loop->index * 30 }}">
                             <td class="px-5 py-3 font-semibold text-gray-700">{{ \Carbon\Carbon::parse($appointment->appointment_time)->format('h:i A') }}</td>
                             <td class="px-5 py-3 text-sm text-blue-600 hover:underline">
                                 <a href="{{ route('patients.show', $appointment->patient) }}">{{ $appointment->patient->full_name }}</a>

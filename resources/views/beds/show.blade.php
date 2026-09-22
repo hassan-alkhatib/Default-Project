@@ -5,8 +5,8 @@
 
 @section('content')
 <div class="max-w-4xl mx-auto">
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
-        <div class="bg-gradient-to-l from-green-700 to-green-900 p-6 text-white">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="80">
+        <div class="bg-gradient-to-l from-green-700 to-green-900 p-6 text-white" data-aos="fade-down" data-aos-delay="120">
             <div class="flex items-center justify-between">
                 <div>
                     <h2 class="text-2xl font-extrabold">{{ $bedAdmission->patient->full_name }}</h2>
@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6" data-aos="fade-up" data-aos-delay="160">
             <div class="p-4 bg-gray-50 rounded-xl">
                 <p class="text-xs text-gray-500 mb-1">المريض</p>
                 <a href="{{ route('patients.show', $bedAdmission->patient) }}" class="font-semibold text-blue-600 hover:underline">{{ $bedAdmission->patient->full_name }}</a>
@@ -50,20 +50,20 @@
         </div>
 
         @if($bedAdmission->reason)
-            <div class="mx-6 mb-4 p-4 bg-gray-50 rounded-xl">
+            <div class="mx-6 mb-4 p-4 bg-gray-50 rounded-xl" data-aos="fade-up" data-aos-delay="200">
                 <p class="text-sm font-bold text-gray-700 mb-1">سبب الإقامة:</p>
                 <p class="text-sm text-gray-600">{{ $bedAdmission->reason }}</p>
             </div>
         @endif
         @if($bedAdmission->notes)
-            <div class="mx-6 mb-6 p-4 bg-gray-50 rounded-xl">
+            <div class="mx-6 mb-6 p-4 bg-gray-50 rounded-xl" data-aos="fade-up" data-aos-delay="220">
                 <p class="text-sm font-bold text-gray-700 mb-1">ملاحظات:</p>
                 <p class="text-sm text-gray-600">{{ $bedAdmission->notes }}</p>
             </div>
         @endif
 
         @if($bedAdmission->status == 'active')
-            <div class="px-6 pb-6">
+            <div class="px-6 pb-6" data-aos="fade-up" data-aos-delay="240">
                 <form method="POST" action="{{ route('beds.discharge', $bedAdmission) }}" onsubmit="return confirm('تأكيد تسجيل خروج المريض؟')">
                     @csrf
                     <button type="submit" class="w-full px-8 py-3 bg-red-600 text-white rounded-xl font-semibold hover:bg-red-700 transition">

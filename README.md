@@ -1,59 +1,188 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# نظام إدارة المستشفيات (Hospital Management System)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+نظام ويب متكامل لإدارة المستشفيات مبني بـ **Laravel 12**، بواجهة عربية (RTL) بتصميم طبي احترافي، يشمل إدارة المرضى والمواعيد والسجلات الطبية والوصفات والتحاليل والفواتير والغرف والأسرة والمخزون والمستخدمين والتقارير.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## المتطلبات
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- PHP **8.2+** مع الـ extensions التالية: `pdo_sqlite`, `mbstring`, `xml`, `curl`, `fileinfo`, `openssl`
+- Composer
+- Node.js **20+** + npm
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## التثبيت (Installation)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+```bash
+# 1) تثبيت مكتبات PHP
+composer install
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+# 2) إنشاء ملف البيئة
+copy .env.example .env          # في Windows
+# cp .env.example .env          # في Linux / Mac
 
-## Laravel Sponsors
+# 3) توليد مفتاح التطبيق
+php artisan key:generate
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+# 4) إعداد قاعدة البيانات
+#    - الملف: database/database.sqlite (أُنشئ تلقائيًا)
+#    - الترحيلات + البيانات التجريبية:
+php artisan migrate --seed
 
-### Premium Partners
+# 5) تثبيت وبناء ملفات الواجهات (CSS/JS)
+npm install
+npm run build
+```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+> **بديل أسرع:** أمر واحد يعمل كل ما سبق (نسخ `.env`، توليد المفتاح، الترحيل):
+> ```bash
+> composer setup
+> ```
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## التشغيل (Run)
 
-## Code of Conduct
+افتح **نافذتين طرفية**:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+**الأولى — خادم التطبيق:**
+```bash
+php artisan serve
+```
 
-## Security Vulnerabilities
+**الثانية — خادم الواجهات (اختياري أثناء التطوير):**
+```bash
+npm run dev
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+بعد ذلك افتح المتصفح على: **http://127.0.0.1:8000**
 
-## License
+### أمر تشغيل شامل (سيرفر + Queue + Logs + Vite)
+```bash
+composer dev
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+> ملاحظة: إذا عدّلت في `resources/js` أو `resources/css` بعد البناء، أعد `npm run build` ليُطبَّق التعديل.
+
+---
+
+## حسابات الدخول التجريبية
+
+| الدور | البريد الإلكتروني | كلمة المرور |
+|-------|-------------------|--------------|
+| **مدير النظام** | `admin@hospital.com` | `password` |
+| موظف الاستقبال | `receptionist@hospital.com` | `password` |
+| المحاسب | `accountant@hospital.com` | `password` |
+
+> صفحة الدخول تحتوي بطاقة «حسابات تجريبية» — اضغطها لتعبئة بيانات المدير تلقائيًا.
+
+---
+
+## بنية قاعدة البيانات
+
+SQLite (`database/database.sqlite`) — أهم الجداول:
+
+- `users` — المستخدمون والأدوار (admin, doctor, receptionist, accountant, lab_technician, pharmacist, nurse, staff)
+- `patients` & `doctors` — المرضى والأطباء
+- `departments` & `rooms` & `bed_admissions` — الأقسام والغرف والأسرة/المنومات
+- `appointments` — المواعيد
+- `medical_records` — السجلات الطبية
+- `prescriptions` + `prescription_items` — الوصفات وأدويتها
+- `lab_tests` — التحاليل ونتائجها
+- `invoices` + `invoice_items` + `payments` — الفواتير والمدفوعات
+- `inventory` + `inventory_transactions` — المخزون وحركاته
+- `notifications` — الإشعارات الداخلية
+- `audit_logs` — سجل العمليات (للمدير فقط)
+
+للترحيل من الصفر: `php artisan migrate:fresh --seed`
+
+---
+
+## الدوال والوحدات (Routes)
+
+| المسار | الوظيفة | الصلاحية |
+|--------|---------|----------|
+| `/login` `POST /login` `/logout` | تسجيل الدخول والخروج | Guest / Auth |
+| `/dashboard` | لوحة التحكم الرئيسية | Auth |
+| `/patients` | إدارة المرضى (CRUD) | Auth |
+| `/doctors` | إدارة الأطباء (CRUD) | Auth |
+| `/departments` | إدارة الأقسام (CRUD) | Auth |
+| `/appointments` | المواعيد (بدون تعديل) | Auth |
+| `/medical-records` | السجلات الطبية (CRUD) | Auth |
+| `/prescriptions` | الوصفات (إنشاء/عرض/حذف) | Auth |
+| `/lab-tests` + `POST .../results` | التحاليل وتسجيل النتائج | Auth |
+| `/invoices` + `POST .../payment` | الفواتير وتسجيل الدفعات | Auth |
+| `/rooms` | إدارة الغرف (CRUD) | Auth |
+| `/beds` + `POST .../discharge` | الأسرة/الإقامات وخروج المريض | Auth |
+| `/inventory` + `POST .../adjust` | المخزون وتعديل الكميات | Auth |
+| `/users` | إدارة المستخدمين (CRUD) | Admin |
+| `/audit-logs` | سجل العمليات | Admin |
+| `/reports` | تقارير المرضى / المواعيد / الإيرادات | Auth |
+| `/notifications` + `/profile` | الإشعارات والملف الشخصي | Auth |
+
+---
+
+## الواجهات والتصميم (Frontend)
+
+- **التقنية:** Blade + Tailwind CSS v4 (عبر Vite) + الخط العربي **Tajawal**.
+- **الهوية:** أزرق طبي (Primary/Dark/Light Blue) مع تدرجات، زوايا دائرية ناعمة.
+- **الحركة (Animation):**
+  - **AOS** (Animate On Scroll) — ظهور تدريجي للبطاقات والجداول والحقول بتتابع مؤجل (stagger).
+  - **GSAP** — عدّادات الأرقام التصاعدية على لوحة التحكم والقوائم والتقارير، وحركات دخول خفيفة.
+  - **CSS** — إخفاء تلقائي للتنبيهات، نبض شارة الإشعارات، مؤشر تحميل أثناء إرسال النماذج (POST)، انتقال لوني خفيف بين الصفحات، وشريط نبض قلب (ECG) متحرك أسفل صفحة الدخول.
+- **إمكانية الوصول:** كل الحركات متوافقة مع `prefers-reduced-motion` (تُعطَّل تلقائيًا مع إعداد تقليل الحركة).
+- **ملفات الواجهات:** `resources/js/app.js` و `resources/css/app.css` (مبنيان عبر Vite في `public/build`).
+
+---
+
+## هيكل المشروع (سريع)
+
+```
+app/
+├── Http/Controllers/        # وحدات التحكم (Patient, Doctor, ...)
+├── Models/                  # موديلات Eloquent
+├── Roles/RoleMiddleware.php # فحص الصلاحيات (role:admin)
+database/
+├── migrations/              # جداول قاعدة البيانات
+├── seeders/DatabaseSeeder.php
+resources/
+├── views/
+│   ├── auth/login.blade.php     # صفحة تسجيل الدخول
+│   ├── layouts/                 # القوالب (app, sidebar, header)
+│   └── <module>/                # index, create, edit, show
+├── css/app.css
+└── js/app.js
+routes/web.php               # كل المسارات
+```
+
+---
+
+## أوامر مفيدة
+
+| الأمر | الوظيفة |
+|-------|---------|
+| `php artisan serve` | تشغيل الخادم |
+| `npm run dev` | واجهات أثناء التطوير |
+| `npm run build` | بناء الواجهات للإنتاج |
+| `php artisan migrate:fresh --seed` | إعادة تهيئة قاعدة البيانات بالبيانات التجريبية |
+| `php artisan view:cache` | تجميع قوالب Blade (فحص صياغتها) |
+| `php artisan route:list` | عرض كل المسارات |
+| `php artisan tinker` | استكشاف الأخطاء عبر الطرفية |
+| `composer test` | تشغيل الاختبارات |
+
+---
+
+## استكشاف الأخطاء
+
+- **الصفحة فاضية / نص فقط:** شغّل `npm run build` ثم حدّث الصفحة.
+- **خطأ قاعدة البيانات:** تأكد أن `database/database.sqlite` موجود و`php artisan migrate --seed`.
+- **الخط العربي لا يظهر:** تأكد من اتصال الإنترنت (الخط محمّل من Google Fonts).
+- **`APP_KEY` مفقود:** `php artisan key:generate`.
+
+---
+
+## ملاحظات
+
+- قاعدة البيانات SQLite محليًا ولا تتطلب خادم DB خارجي.
+- نظام عمل بالكامل بواجهة عربية RTL، صالح للعرض التجريبي والاستخدام الفعلي على الشبكة الداخلية.

@@ -6,27 +6,27 @@
 @section('content')
 <div class="space-y-6">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
-        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm" data-aos="fade-up" data-aos-delay="80">
             <p class="text-sm text-gray-500">إجمالي الأسرّة</p>
-            <p class="text-2xl font-extrabold text-gray-800 mt-1">{{ number_format($stats['total_beds']) }}</p>
+            <p class="text-2xl font-extrabold text-gray-800 mt-1" data-counter data-value="{{ $stats['total_beds'] }}">0</p>
         </div>
-        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm" data-aos="fade-up" data-aos-delay="120">
             <p class="text-sm text-gray-500">أسرّة مشغولة</p>
-            <p class="text-2xl font-extrabold text-red-600 mt-1">{{ number_format($stats['occupied_beds']) }}</p>
+            <p class="text-2xl font-extrabold text-red-600 mt-1" data-counter data-value="{{ $stats['occupied_beds'] }}">0</p>
         </div>
-        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm" data-aos="fade-up" data-aos-delay="160">
             <p class="text-sm text-gray-500">أسرّة متاحة</p>
-            <p class="text-2xl font-extrabold text-green-600 mt-1">{{ number_format($stats['available_beds']) }}</p>
+            <p class="text-2xl font-extrabold text-green-600 mt-1" data-counter data-value="{{ $stats['available_beds'] }}">0</p>
         </div>
-        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm" data-aos="fade-up" data-aos-delay="200">
             <p class="text-sm text-gray-500">إقامات نشطة</p>
-            <p class="text-2xl font-extrabold text-blue-600 mt-1">{{ number_format($stats['active_admissions']) }}</p>
+            <p class="text-2xl font-extrabold text-blue-600 mt-1" data-counter data-value="{{ $stats['active_admissions'] }}">0</p>
         </div>
     </div>
 
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5" data-aos="fade-down" data-aos-delay="80">
         <div class="flex flex-col md:flex-row gap-4 justify-between items-center">
-            <form method="GET" class="flex flex-col md:flex-row gap-3 flex-1">
+            <form method="GET" class="flex flex-col md:flex-row gap-3 flex-1" data-aos="fade-left" data-aos-delay="120">
                 <select name="status" class="px-4 py-2.5 border border-gray-300 rounded-xl">
                     <option value="">كل الحالات</option>
                     <option value="active" {{ request('status') == 'active' ? 'selected' : '' }}>قيد العلاج</option>
@@ -37,14 +37,14 @@
                     تصفية
                 </button>
             </form>
-            <a href="{{ route('beds.create') }}" class="px-6 py-2.5 bg-gradient-to-l from-green-600 to-green-700 text-white rounded-xl font-semibold hover:from-green-700 hover:to-green-800 transition flex items-center gap-2">
+            <a href="{{ route('beds.create') }}" data-button-glow class="px-6 py-2.5 bg-gradient-to-l from-green-600 to-green-700 text-white rounded-xl font-semibold hover:from-green-700 hover:to-green-800 transition flex items-center gap-2" data-aos="zoom-in" data-aos-delay="150">
                 <i data-lucide="user-plus" class="w-5 h-5"></i>
                 تسجيل إقامة
             </a>
         </div>
     </div>
 
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="170">
         <div class="overflow-x-auto">
             <table class="w-full">
                 <thead class="bg-gray-50">
@@ -60,7 +60,7 @@
                 </thead>
                 <tbody class="divide-y divide-gray-100">
                     @forelse($admissions as $admission)
-                        <tr class="hover:bg-gray-50 transition">
+                        <tr class="hover:bg-gray-50 transition" data-aos="fade-up" data-aos-delay="{{ 180 + $loop->index * 25 }}">
                             <td class="px-5 py-3">
                                 <a href="{{ route('patients.show', $admission->patient) }}" class="text-sm font-medium text-gray-800 hover:text-blue-600 hover:underline">
                                     {{ $admission->patient->full_name }}
@@ -103,7 +103,7 @@
         </div>
     </div>
 
-    <div class="flex justify-center">
+    <div class="flex justify-center" data-aos="fade-up" data-aos-delay="220">
         {{ $admissions->links() }}
     </div>
 </div>

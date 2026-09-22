@@ -5,8 +5,8 @@
 
 @section('content')
 <div class="max-w-4xl mx-auto space-y-6">
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
-        <div class="bg-gradient-to-l from-cyan-700 to-cyan-900 p-6 text-white">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="80">
+        <div class="bg-gradient-to-l from-cyan-700 to-cyan-900 p-6 text-white" data-aos="fade-down" data-aos-delay="120">
             <div class="flex items-center justify-between">
                 <div>
                     <h2 class="text-2xl font-extrabold">{{ $labTest->test_number }}</h2>
@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6" data-aos="fade-up" data-aos-delay="160">
             <div class="p-4 bg-gray-50 rounded-xl">
                 <p class="text-xs text-gray-500 mb-1">المريض</p>
                 <a href="{{ route('patients.show', $labTest->patient) }}" class="font-semibold text-blue-600 hover:underline">{{ $labTest->patient->full_name }}</a>
@@ -38,7 +38,7 @@
         </div>
 
         @if($labTest->description)
-            <div class="px-6">
+            <div class="px-6" data-aos="fade-up" data-aos-delay="200">
                 <div class="p-4 bg-gray-50 rounded-xl">
                     <p class="text-sm font-bold text-gray-700 mb-1">وصف:</p>
                     <p class="text-sm text-gray-600">{{ $labTest->description }}</p>
@@ -47,7 +47,7 @@
         @endif
 
         @if($labTest->results)
-            <div class="px-6 pb-6">
+            <div class="px-6 pb-6" data-aos="fade-up" data-aos-delay="220">
                 <div class="p-5 bg-white border border-cyan-200 rounded-xl">
                     <h3 class="font-bold text-cyan-700 mb-3 flex items-center gap-2">
                         <i data-lucide="flask-round" class="w-5 h-5"></i>
@@ -68,7 +68,7 @@
     </div>
 
     @if($labTest->status !== 'completed')
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6" data-aos="fade-up" data-aos-delay="240">
         <h3 class="font-bold text-gray-800 mb-4 flex items-center gap-2">
             <i data-lucide="clipboard-check" class="w-5 h-5 text-green-600"></i>
             تسجيل النتائج

@@ -5,9 +5,9 @@
 
 @section('content')
 <div class="space-y-6">
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5" data-aos="fade-down" data-aos-delay="80">
         <div class="flex flex-col md:flex-row gap-4 justify-between items-center">
-            <form method="GET" class="flex flex-col md:flex-row gap-3 flex-1">
+            <form method="GET" class="flex flex-col md:flex-row gap-3 flex-1" data-aos="fade-left" data-aos-delay="120">
                 <select name="department_id" class="px-4 py-2.5 border border-gray-300 rounded-xl">
                     <option value="">كل الأقسام</option>
                     @foreach($departments as $dept)
@@ -24,7 +24,7 @@
                     تصفية
                 </button>
             </form>
-            <a href="{{ route('rooms.create') }}" class="px-6 py-2.5 bg-gradient-to-l from-indigo-600 to-indigo-700 text-white rounded-xl font-semibold hover:from-indigo-700 hover:to-indigo-800 transition flex items-center gap-2">
+            <a href="{{ route('rooms.create') }}" data-button-glow class="px-6 py-2.5 bg-gradient-to-l from-indigo-600 to-indigo-700 text-white rounded-xl font-semibold hover:from-indigo-700 hover:to-indigo-800 transition flex items-center gap-2" data-aos="zoom-in" data-aos-delay="150">
                 <i data-lucide="door-open" class="w-5 h-5"></i>
                 إضافة غرفة
             </a>
@@ -48,7 +48,7 @@
                     'emergency' => 'طوارئ', 'operating' => 'عمليات', 'laboratory' => 'مختبر', 'pharmacy' => 'صيدلية',
                 };
             @endphp
-            <a href="{{ route('rooms.show', $room) }}" class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-lg transition-all">
+            <a href="{{ route('rooms.show', $room) }}" class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-lg transition-all" data-aos="fade-up" data-aos-delay="{{ 120 + $loop->index * 40 }}">
                 <div class="p-5 border-b border-gray-100 flex items-start justify-between">
                     <div>
                         <p class="text-lg font-extrabold text-gray-800">{{ $room->room_number }}</p>
@@ -86,14 +86,14 @@
                 </div>
             </a>
         @empty
-            <div class="col-span-full bg-white rounded-2xl p-16 text-center text-gray-400">
+            <div class="col-span-full bg-white rounded-2xl p-16 text-center text-gray-400" data-aos="fade-up" data-aos-delay="120">
                 <i data-lucide="door-open" class="w-14 h-14 mx-auto mb-3 opacity-30"></i>
                 <p class="font-medium">لا توجد غرف</p>
             </div>
         @endforelse
     </div>
 
-    <div class="flex justify-center">
+    <div class="flex justify-center" data-aos="fade-up" data-aos-delay="220">
         {{ $rooms->links() }}
     </div>
 </div>

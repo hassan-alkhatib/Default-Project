@@ -5,8 +5,8 @@
 
 @section('content')
 <div class="max-w-4xl mx-auto space-y-6">
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden print-area">
-        <div class="bg-gradient-to-l from-orange-700 to-orange-900 p-6 text-white print-header">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden print-area" data-aos="fade-up" data-aos-delay="80">
+        <div class="bg-gradient-to-l from-orange-700 to-orange-900 p-6 text-white print-header" data-aos="fade-down" data-aos-delay="120">
             <div class="flex items-center justify-between">
                 <div>
                     <h2 class="text-2xl font-extrabold">{{ $invoice->invoice_number }}</h2>
@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6" data-aos="fade-up" data-aos-delay="160">
             <div class="p-4 bg-gray-50 rounded-xl">
                 <p class="text-xs text-gray-500 mb-1">المريض</p>
                 <a href="{{ route('patients.show', $invoice->patient) }}" class="font-semibold text-blue-600 hover:underline">{{ $invoice->patient->full_name }}</a>
@@ -44,7 +44,7 @@
             </div>
         </div>
 
-        <div class="px-6 pb-6">
+        <div class="px-6 pb-6" data-aos="fade-up" data-aos-delay="200">
             <div class="overflow-x-auto rounded-xl border border-gray-200">
                 <table class="w-full">
                     <thead class="bg-gray-50">
@@ -57,7 +57,7 @@
                     </thead>
                     <tbody class="divide-y divide-gray-100">
                         @foreach($invoice->items as $item)
-                            <tr>
+<tr data-aos="fade-up" data-aos-delay="{{ 180 + $loop->index * 25 }}">
                                 <td class="px-4 py-3 text-sm text-gray-700">{{ $item->description }}</td>
                                 <td class="px-4 py-3 text-sm text-gray-600">{{ $item->quantity }}</td>
                                 <td class="px-4 py-3 text-sm text-gray-600">{{ number_format($item->unit_price, 2) }}</td>
@@ -68,7 +68,7 @@
                 </table>
             </div>
 
-            <div class="mt-6 flex justify-end">
+            <div class="mt-6 flex justify-end" data-aos="fade-up" data-aos-delay="220">
                 <div class="w-72 space-y-3">
                     <div class="flex justify-between text-sm text-gray-600">
                         <span>المجموع الفرعي</span>
@@ -96,7 +96,7 @@
     </div>
 
     @if($invoice->balance > 0)
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6" data-aos="fade-up" data-aos-delay="240">
         <h3 class="font-bold text-gray-800 mb-4 flex items-center gap-2">
             <i data-lucide="credit-card" class="w-5 h-5 text-green-600"></i>
             تسجيل دفعة

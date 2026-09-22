@@ -11,7 +11,7 @@
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-sm text-gray-500 font-medium">إجمالي المرضى</p>
-                    <p class="text-2xl font-extrabold text-gray-800 mt-1">{{ number_format($stats['total_patients']) }}</p>
+                    <p class="text-2xl font-extrabold text-gray-800 mt-1" data-counter data-value="{{ $stats['total_patients'] }}">0</p>
                 </div>
                 <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
                     <i data-lucide="users" class="w-6 h-6 text-blue-600"></i>
@@ -23,7 +23,7 @@
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-sm text-gray-500 font-medium">الأطباء النشطون</p>
-                    <p class="text-2xl font-extrabold text-gray-800 mt-1">{{ number_format($stats['total_doctors']) }}</p>
+                    <p class="text-2xl font-extrabold text-gray-800 mt-1" data-counter data-value="{{ $stats['total_doctors'] }}">0</p>
                 </div>
                 <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
                     <i data-lucide="stethoscope" class="w-6 h-6 text-green-600"></i>
@@ -35,7 +35,7 @@
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-sm text-gray-500 font-medium">مواعيد اليوم</p>
-                    <p class="text-2xl font-extrabold text-gray-800 mt-1">{{ number_format($stats['today_appointments']) }}</p>
+                    <p class="text-2xl font-extrabold text-gray-800 mt-1" data-counter data-value="{{ $stats['today_appointments'] }}">0</p>
                 </div>
                 <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
                     <i data-lucide="calendar-check" class="w-6 h-6 text-orange-600"></i>
@@ -47,7 +47,7 @@
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-sm text-gray-500 font-medium">إيرادات الشهر</p>
-                    <p class="text-2xl font-extrabold text-green-600 mt-1">{{ number_format($monthlyRevenue, 2) }} ر.س</p>
+                    <p class="text-2xl font-extrabold text-green-600 mt-1"><span data-counter data-value="{{ $monthlyRevenue }}" data-decimals="2">0</span> ر.س</p>
                 </div>
                 <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center">
                     <i data-lucide="trending-up" class="w-6 h-6 text-emerald-600"></i>

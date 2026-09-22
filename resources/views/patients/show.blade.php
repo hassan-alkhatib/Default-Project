@@ -5,8 +5,8 @@
 
 @section('content')
 <div class="space-y-6">
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
-        <div class="bg-gradient-to-l from-blue-700 to-blue-900 p-6 text-white relative">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="80">
+        <div class="bg-gradient-to-l from-blue-700 to-blue-900 p-6 text-white relative" data-aos="fade-down" data-aos-delay="120">
             <div class="flex items-center gap-5">
                 <div class="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center text-2xl font-bold">
                     {{ strtoupper(substr($patient->first_name, 0, 1)) }}{{ strtoupper(substr($patient->last_name, 0, 1)) }}
@@ -23,7 +23,7 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-5 p-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-5 p-6" data-aos="fade-up" data-aos-delay="160">
             <div class="p-4 bg-gray-50 rounded-xl">
                 <p class="text-xs text-gray-500 mb-1">رقم الهاتف</p>
                 <p class="font-semibold text-gray-800" dir="ltr">{{ $patient->phone ?: '—' }}</p>
@@ -61,14 +61,14 @@
         </div>
 
         @if($patient->allergies)
-            <div class="mx-6 mb-4 p-4 bg-red-50 border border-red-200 rounded-xl">
+            <div class="mx-6 mb-4 p-4 bg-red-50 border border-red-200 rounded-xl" data-aos="fade-up" data-aos-delay="200">
                 <p class="text-sm font-bold text-red-700 mb-1 flex items-center gap-2"><i data-lucide="alert-triangle" class="w-4 h-4"></i> الحساسية:</p>
                 <p class="text-sm text-red-600">{{ $patient->allergies }}</p>
             </div>
         @endif
 
         @if($patient->medical_history)
-            <div class="mx-6 mb-6 p-4 bg-blue-50 border border-blue-200 rounded-xl">
+            <div class="mx-6 mb-6 p-4 bg-blue-50 border border-blue-200 rounded-xl" data-aos="fade-up" data-aos-delay="220">
                 <p class="text-sm font-bold text-blue-700 mb-1 flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4"></i> التاريخ الطبي:</p>
                 <p class="text-sm text-blue-600">{{ $patient->medical_history }}</p>
             </div>
@@ -77,7 +77,7 @@
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <!-- Appointments -->
-        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="200">
             <div class="p-5 border-b border-gray-100 flex items-center justify-between">
                 <h3 class="font-bold text-gray-800 flex items-center gap-2">
                     <i data-lucide="calendar" class="w-5 h-5 text-blue-600"></i>
@@ -108,7 +108,7 @@
         </div>
 
         <!-- Medical Records -->
-        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="240">
             <div class="p-5 border-b border-gray-100 flex items-center justify-between">
                 <h3 class="font-bold text-gray-800 flex items-center gap-2">
                     <i data-lucide="file-text" class="w-5 h-5 text-green-600"></i>
@@ -135,7 +135,7 @@
         </div>
 
         <!-- Prescriptions -->
-        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="280">
             <div class="p-5 border-b border-gray-100 flex items-center justify-between">
                 <h3 class="font-bold text-gray-800 flex items-center gap-2">
                     <i data-lucide="pill" class="w-5 h-5 text-purple-600"></i>
@@ -161,7 +161,7 @@
         </div>
 
         <!-- Invoices -->
-        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="320">
             <div class="p-5 border-b border-gray-100">
                 <h3 class="font-bold text-gray-800 flex items-center gap-2">
                     <i data-lucide="receipt" class="w-5 h-5 text-orange-600"></i>

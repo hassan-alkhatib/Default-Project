@@ -5,8 +5,8 @@
 
 @section('content')
 <div class="max-w-4xl mx-auto">
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
-        <div class="bg-gradient-to-l from-purple-700 to-purple-900 p-6 text-white">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="80">
+        <div class="bg-gradient-to-l from-purple-700 to-purple-900 p-6 text-white" data-aos="fade-down" data-aos-delay="120">
             <div class="flex items-center justify-between">
                 <div>
                     <h2 class="text-2xl font-extrabold">{{ $prescription->prescription_number }}</h2>
@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6" data-aos="fade-up" data-aos-delay="160">
             <div class="p-4 bg-gray-50 rounded-xl">
                 <p class="text-xs text-gray-500 mb-1">المريض</p>
                 <a href="{{ route('patients.show', $prescription->patient) }}" class="font-semibold text-blue-600 hover:underline">
@@ -35,7 +35,7 @@
             </div>
         </div>
 
-        <div class="px-6 pb-6">
+        <div class="px-6 pb-6" data-aos="fade-up" data-aos-delay="200">
             <h3 class="font-bold text-gray-800 mb-4">الأدوية الموصوفة</h3>
             <div class="overflow-x-auto rounded-xl border border-gray-200">
                 <table class="w-full">
@@ -50,7 +50,7 @@
                     </thead>
                     <tbody class="divide-y divide-gray-100">
                         @foreach($prescription->items as $item)
-                            <tr class="hover:bg-gray-50">
+                            <tr class="hover:bg-gray-50" data-aos="fade-up" data-aos-delay="{{ 180 + $loop->index * 25 }}">
                                 <td class="px-4 py-3">
                                     <p class="text-sm font-semibold text-gray-800">{{ $item->medication_name }}</p>
                                     @if($item->instructions)
@@ -69,7 +69,7 @@
         </div>
 
         @if($prescription->notes)
-            <div class="mx-6 mb-6 p-4 bg-gray-50 rounded-xl">
+            <div class="mx-6 mb-6 p-4 bg-gray-50 rounded-xl" data-aos="fade-up" data-aos-delay="220">
                 <p class="text-sm font-bold text-gray-700 mb-1">ملاحظات:</p>
                 <p class="text-sm text-gray-600">{{ $prescription->notes }}</p>
             </div>

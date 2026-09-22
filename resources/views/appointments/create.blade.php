@@ -5,19 +5,19 @@
 
 @section('content')
 <div class="max-w-3xl mx-auto">
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
-        <div class="p-5 border-b border-gray-100 bg-gradient-to-l from-blue-50 to-white">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="80">
+        <div class="p-5 border-b border-gray-100 bg-gradient-to-l from-blue-50 to-white" data-aos="fade-right" data-aos-delay="110">
             <h3 class="font-bold text-gray-800 flex items-center gap-2">
                 <i data-lucide="calendar-plus" class="w-5 h-5 text-blue-600"></i>
                 حجز موعد جديد
             </h3>
         </div>
 
-        <form method="POST" action="{{ route('appointments.store') }}" class="p-6 space-y-6">
+        <form method="POST" action="{{ route('appointments.store') }}" class="p-6 space-y-6" data-aos="fade-up" data-aos-delay="150">
             @csrf
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <div>
+                <div data-aos="fade-left" data-aos-delay="180">
                     <label class="block text-sm font-medium text-gray-700 mb-2">المريض *</label>
                     <select name="patient_id" required class="w-full px-4 py-2.5 border border-gray-300 rounded-xl">
                         <option value="">اختر المريض</option>
@@ -29,7 +29,7 @@
                     </select>
                 </div>
 
-                <div>
+                <div data-aos="fade-left" data-aos-delay="200">
                     <label class="block text-sm font-medium text-gray-700 mb-2">الطبيب *</label>
                     <select name="doctor_id" required id="doctor-select" class="w-full px-4 py-2.5 border border-gray-300 rounded-xl">
                         <option value="">اختر الطبيب</option>
@@ -41,7 +41,7 @@
                     </select>
                 </div>
 
-                <div>
+                <div data-aos="fade-left" data-aos-delay="220">
                     <label class="block text-sm font-medium text-gray-700 mb-2">القسم</label>
                     <select name="department_id" class="w-full px-4 py-2.5 border border-gray-300 rounded-xl">
                         <option value="">اختر القسم</option>
@@ -51,19 +51,19 @@
                     </select>
                 </div>
 
-                <div>
+                <div data-aos="fade-left" data-aos-delay="240">
                     <label class="block text-sm font-medium text-gray-700 mb-2">التاريخ *</label>
                     <input type="date" name="appointment_date" required value="{{ old('appointment_date', now()->format('Y-m-d')) }}" min="{{ now()->format('Y-m-d') }}"
                            class="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500">
                 </div>
 
-                <div>
+                <div data-aos="fade-left" data-aos-delay="260">
                     <label class="block text-sm font-medium text-gray-700 mb-2">الوقت *</label>
                     <input type="time" name="appointment_time" required value="{{ old('appointment_time') }}"
                            class="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500">
                 </div>
 
-                <div>
+                <div data-aos="fade-left" data-aos-delay="280">
                     <label class="block text-sm font-medium text-gray-700 mb-2">الأولوية *</label>
                     <select name="priority" class="w-full px-4 py-2.5 border border-gray-300 rounded-xl">
                         <option value="normal">عادية</option>
@@ -73,24 +73,24 @@
                     </select>
                 </div>
 
-                <div class="md:col-span-2">
+                <div class="md:col-span-2" data-aos="fade-left" data-aos-delay="300">
                     <label class="block text-sm font-medium text-gray-700 mb-2">سبب الزيارة</label>
                     <input type="text" name="reason" value="{{ old('reason') }}"
                            class="w-full px-4 py-2.5 border border-gray-300 rounded-xl">
                 </div>
 
-                <div class="md:col-span-2">
+                <div class="md:col-span-2" data-aos="fade-left" data-aos-delay="320">
                     <label class="block text-sm font-medium text-gray-700 mb-2">ملاحظات</label>
                     <textarea name="notes" rows="3" class="w-full px-4 py-2.5 border border-gray-300 rounded-xl">{{ old('notes') }}</textarea>
                 </div>
             </div>
 
-            <div class="p-4 bg-blue-50 border border-blue-200 rounded-xl text-sm text-blue-700 flex items-center gap-2">
+            <div class="p-4 bg-blue-50 border border-blue-200 rounded-xl text-sm text-blue-700 flex items-center gap-2" data-aos="fade-up" data-aos-delay="340">
                 <i data-lucide="info" class="w-4 h-4"></i>
                 رسوم الكشف: <span id="fee-display">—</span> ر.س (تُضاف تلقائياً حسب الطبيب)
             </div>
 
-            <div class="flex justify-end gap-3 pt-4 border-t border-gray-100">
+            <div class="flex justify-end gap-3 pt-4 border-t border-gray-100" data-aos="fade-up" data-aos-delay="360">
                 <a href="{{ route('appointments.index') }}" class="px-6 py-2.5 border border-gray-300 text-gray-700 rounded-xl font-medium hover:bg-gray-50">
                     إلغاء
                 </a>

@@ -5,9 +5,9 @@
 
 @section('content')
 <div class="space-y-6">
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5" data-aos="fade-down" data-aos-delay="80">
         <div class="flex flex-col md:flex-row gap-4 justify-between items-center">
-            <form method="GET" class="flex flex-col md:flex-row gap-3 flex-1">
+            <form method="GET" class="flex flex-col md:flex-row gap-3 flex-1" data-aos="fade-left" data-aos-delay="120">
                 <input type="text" name="search" value="{{ request('search') }}" placeholder="بحث برقم السجل أو اسم المريض..."
                        class="flex-1 px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500">
                 <select name="type" class="px-4 py-2.5 border border-gray-300 rounded-xl">
@@ -24,14 +24,14 @@
                     بحث
                 </button>
             </form>
-            <a href="{{ route('medical-records.create') }}" class="px-6 py-2.5 bg-gradient-to-l from-green-600 to-green-700 text-white rounded-xl font-semibold hover:from-green-700 hover:to-green-800 transition flex items-center gap-2 shadow-lg shadow-green-600/20">
+            <a href="{{ route('medical-records.create') }}" data-button-glow class="px-6 py-2.5 bg-gradient-to-l from-green-600 to-green-700 text-white rounded-xl font-semibold hover:from-green-700 hover:to-green-800 transition flex items-center gap-2 shadow-lg shadow-green-600/20" data-aos="zoom-in" data-aos-delay="150">
                 <i data-lucide="file-plus" class="w-5 h-5"></i>
                 إضافة سجل طبي
             </a>
         </div>
     </div>
 
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="170">
         <div class="overflow-x-auto">
             <table class="w-full">
                 <thead class="bg-gray-50">
@@ -47,7 +47,7 @@
                 </thead>
                 <tbody class="divide-y divide-gray-100">
                     @forelse($records as $record)
-                        <tr class="hover:bg-gray-50 transition">
+                        <tr class="hover:bg-gray-50 transition" data-aos="fade-up" data-aos-delay="{{ 180 + $loop->index * 25 }}">
                             <td class="px-5 py-3 text-sm font-mono text-gray-600">{{ $record->record_number }}</td>
                             <td class="px-5 py-3">
                                 <a href="{{ route('patients.show', $record->patient) }}" class="text-sm font-medium text-gray-800 hover:text-blue-600 hover:underline">
@@ -94,7 +94,7 @@
         </div>
     </div>
 
-    <div class="flex justify-center">
+    <div class="flex justify-center" data-aos="fade-up" data-aos-delay="220">
         {{ $records->links() }}
     </div>
 </div>

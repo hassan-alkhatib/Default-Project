@@ -5,8 +5,8 @@
 
 @section('content')
 <div class="max-w-4xl mx-auto space-y-6">
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
-        <div class="bg-gradient-to-l from-blue-700 to-blue-900 p-6 text-white">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="80">
+        <div class="bg-gradient-to-l from-blue-700 to-blue-900 p-6 text-white" data-aos="fade-down" data-aos-delay="120">
             <div class="flex items-center justify-between">
                 <div>
                     <h2 class="text-2xl font-extrabold">{{ $appointment->appointment_number }}</h2>
@@ -30,7 +30,7 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6" data-aos="fade-up" data-aos-delay="160">
             <div class="p-4 bg-gray-50 rounded-xl">
                 <p class="text-xs text-gray-500 mb-1">المريض</p>
                 <a href="{{ route('patients.show', $appointment->patient) }}" class="font-semibold text-gray-800 hover:text-blue-600 hover:underline">
@@ -78,7 +78,7 @@
         </div>
     </div>
 
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6" data-aos="fade-up" data-aos-delay="200">
         <h3 class="font-bold text-gray-800 mb-4 flex items-center gap-2">
             <i data-lucide="settings-2" class="w-5 h-5 text-blue-600"></i>
             تحديث حالة الموعد
@@ -101,7 +101,7 @@
     </div>
 
     @if($appointment->status == 'completed')
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6" data-aos="fade-up" data-aos-delay="240">
         <h3 class="font-bold text-gray-800 mb-4 flex items-center gap-2">
             <i data-lucide="clipboard-list" class="w-5 h-5 text-green-600"></i>
             إجراءات إضافية

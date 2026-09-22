@@ -5,8 +5,8 @@
 
 @section('content')
 <div class="space-y-6">
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
-        <form method="GET" class="flex flex-col md:flex-row gap-3">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5" data-aos="fade-down" data-aos-delay="80">
+        <form method="GET" class="flex flex-col md:flex-row gap-3" data-aos="fade-left" data-aos-delay="120">
             <input type="text" name="user_id" value="{{ request('user_id') }}" placeholder="معرف المستخدم"
                    class="px-4 py-2.5 border border-gray-300 rounded-xl">
             <input type="text" name="action" value="{{ request('action') }}" placeholder="الفعل"
@@ -19,7 +19,7 @@
         </form>
     </div>
 
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="170">
         <div class="overflow-x-auto">
             <table class="w-full">
                 <thead class="bg-gray-50">
@@ -32,7 +32,7 @@
                 </thead>
                 <tbody class="divide-y divide-gray-100">
                     @forelse($logs as $log)
-                        <tr class="hover:bg-gray-50">
+                        <tr class="hover:bg-gray-50" data-aos="fade-up" data-aos-delay="{{ 180 + $loop->index * 25 }}">
                             <td class="px-5 py-3">
                                 <div class="flex items-center gap-3">
                                     <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 text-white flex items-center justify-center text-xs font-bold">
@@ -61,7 +61,7 @@
         </div>
     </div>
 
-    <div class="flex justify-center">
+    <div class="flex justify-center" data-aos="fade-up" data-aos-delay="220">
         {{ $logs->links() }}
     </div>
 </div>

@@ -5,8 +5,8 @@
 
 @section('content')
 <div class="max-w-4xl mx-auto space-y-6">
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
-        <div class="bg-gradient-to-l from-amber-700 to-amber-900 p-6 text-white">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="80">
+        <div class="bg-gradient-to-l from-amber-700 to-amber-900 p-6 text-white" data-aos="fade-down" data-aos-delay="120">
             <div class="flex items-center justify-between">
                 <div>
                     <h2 class="text-2xl font-extrabold">{{ $inventory->name }}</h2>
@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-6" data-aos="fade-up" data-aos-delay="160">
             <div class="p-4 bg-gray-50 rounded-xl text-center">
                 <p class="text-xs text-gray-500 mb-1">الكمية</p>
                 <p class="text-xl font-extrabold text-gray-800">{{ $inventory->quantity }}</p>
@@ -41,7 +41,7 @@
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6" data-aos="fade-up" data-aos-delay="200">
             <h3 class="font-bold text-gray-800 mb-4 flex items-center gap-2">
                 <i data-lucide="move" class="w-5 h-5 text-blue-600"></i>
                 تعديل المخزون
@@ -72,7 +72,7 @@
             </form>
         </div>
 
-        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="240">
             <div class="p-5 border-b border-gray-100">
                 <h3 class="font-bold text-gray-800 flex items-center gap-2">
                     <i data-lucide="history" class="w-5 h-5 text-purple-600"></i>

@@ -5,8 +5,8 @@
 
 @section('content')
 <div class="max-w-4xl mx-auto space-y-6">
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
-        <div class="bg-gradient-to-l from-teal-700 to-teal-900 p-6 text-white">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="80">
+        <div class="bg-gradient-to-l from-teal-700 to-teal-900 p-6 text-white" data-aos="fade-down" data-aos-delay="120">
             <div class="flex items-center justify-between">
                 <div>
                     <h2 class="text-2xl font-extrabold">{{ $department->name }}</h2>
@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6" data-aos="fade-up" data-aos-delay="160">
             <div class="p-4 bg-gray-50 rounded-xl text-center">
                 <p class="text-xs text-gray-500 mb-1">الأطباء</p>
                 <p class="text-xl font-extrabold text-gray-800">{{ $department->doctors->count() }}</p>
@@ -34,7 +34,7 @@
         </div>
 
         @if($department->description)
-            <div class="px-6 pb-4">
+            <div class="px-6 pb-4" data-aos="fade-up" data-aos-delay="200">
                 <div class="p-4 bg-gray-50 rounded-xl">
                     <p class="text-sm font-bold text-gray-700 mb-1">الوصف:</p>
                     <p class="text-sm text-gray-600">{{ $department->description }}</p>
@@ -44,7 +44,7 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="200">
             <div class="p-5 border-b border-gray-100">
                 <h3 class="font-bold text-gray-800">أطباء القسم</h3>
             </div>
@@ -65,7 +65,7 @@
             </div>
         </div>
 
-        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="240">
             <div class="p-5 border-b border-gray-100">
                 <h3 class="font-bold text-gray-800">غرف القسم</h3>
             </div>
@@ -95,7 +95,7 @@
         </div>
     </div>
 
-    <div class="flex gap-3">
+    <div class="flex gap-3" data-aos="fade-up" data-aos-delay="280">
         <a href="{{ route('departments.edit', $department) }}" class="px-6 py-2.5 bg-yellow-600 text-white rounded-xl font-semibold hover:bg-yellow-700 transition">
             تعديل القسم
         </a>

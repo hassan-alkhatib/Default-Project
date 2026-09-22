@@ -5,8 +5,8 @@
 
 @section('content')
 <div class="max-w-4xl mx-auto space-y-6">
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
-        <div class="bg-gradient-to-l from-indigo-700 to-indigo-900 p-6 text-white">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="80">
+        <div class="bg-gradient-to-l from-indigo-700 to-indigo-900 p-6 text-white" data-aos="fade-down" data-aos-delay="120">
             <div class="flex items-center justify-between">
                 <div>
                     <h2 class="text-2xl font-extrabold">الغرفة {{ $room->room_number }}</h2>
@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-6" data-aos="fade-up" data-aos-delay="160">
             <div class="p-4 bg-gray-50 rounded-xl text-center">
                 <p class="text-xs text-gray-500 mb-1">السعة</p>
                 <p class="text-xl font-extrabold text-gray-800">{{ $room->capacity }}</p>
@@ -38,7 +38,7 @@
         </div>
     </div>
 
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="200">
         <div class="p-5 border-b border-gray-100">
             <h3 class="font-bold text-gray-800">سجل الإقامات</h3>
         </div>
@@ -54,7 +54,7 @@
                 </thead>
                 <tbody class="divide-y divide-gray-100">
                     @forelse($room->bedAdmissions as $admission)
-                        <tr>
+                        <tr data-aos="fade-up" data-aos-delay="{{ 180 + $loop->index * 25 }}">
                             <td class="px-5 py-3 text-sm text-gray-700">{{ $admission->patient->full_name }}</td>
                             <td class="px-5 py-3 text-sm text-gray-600">{{ $admission->admission_date->format('d/m/Y') }}</td>
                             <td class="px-5 py-3 text-sm text-gray-600">{{ $admission->actual_discharge_date ? $admission->actual_discharge_date->format('d/m/Y') : '—' }}</td>
@@ -75,7 +75,7 @@
     </div>
 
     @if($room->status == 'available' && $room->available_beds > 0)
-        <a href="{{ route('beds.create') }}?room_id={{ $room->id }}" class="block text-center px-8 py-3 bg-green-600 text-white rounded-xl font-semibold hover:bg-green-700 transition">
+        <a href="{{ route('beds.create') }}?room_id={{ $room->id }}" class="block text-center px-8 py-3 bg-green-600 text-white rounded-xl font-semibold hover:bg-green-700 transition" data-aos="fade-up" data-aos-delay="220">
             تسجيل مريض في هذه الغرفة
         </a>
     @endif

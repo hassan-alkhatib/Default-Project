@@ -89,4 +89,80 @@ window.addEventListener('DOMContentLoaded', () => {
             button.style.transform = '';
         });
     });
+
+    document.querySelectorAll('[data-counter]').forEach((el) => {
+        const target = parseFloat((el.dataset.value || '0').replace(/,/g, ''));
+        const decimals = Math.min(parseInt(el.dataset.decimals || '0', 10), 2);
+        const format = (value) =>
+            value.toLocaleString('en-US', {
+                minimumFractionDigits: decimals,
+                maximumFractionDigits: decimals,
+            });
+
+        if (prefersReducedMotion) {
+            el.textContent = format(target);
+            return;
+        }
+
+        const state = { val: 0 };
+        gsap.to(state, {
+            val: target,
+            duration: 1.2,
+            ease: 'power2.out',
+            onUpdate() {
+                el.textContent = format(state.val);
+            },
+        });
+    });
+
+    document.querySelectorAll('.alert-box').forEach((alertEl) => {
+        setTimeout(() => {
+            alertEl.classList.add('is-hiding');
+            setTimeout(() => alertEl.remove(), 450);
+        }, 4200);
+    });
+
+    if (!prefersReducedMotion) {
+        const overlay = document.createElement('div');
+        overlay.className = 'page-transition-overlay';
+        document.body.appendChild(overlay);
+
+        document.querySelectorAll('a[href]').forEach((link) => {
+            link.addEventListener('click', (e) => {
+                if (link.closest('form')) return;
+                if (link.target && link.target !== '_self') return;
+                if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+                if (link.hasAttribute('onclick') || link.hasAttribute('download')) return;
+
+                const href = link.getAttribute('href');
+                if (!href || href === '#' || href.startsWith('#') || /^javascript:/i.test(href)) return;
+                if (href.startsWith('mailto:') || href.startsWith('tel:')) return;
+
+                const url = new URL(href, window.location.origin);
+                if (url.origin !== window.location.origin) return;
+
+                e.preventDefault();
+                overlay.classList.add('is-active');
+                setTimeout(() => {
+                    window.location.href = url.href;
+                }, 220);
+            });
+        });
+    }
+
+    document.querySelectorAll('form').forEach((form) => {
+        const method = (form.getAttribute('method') || 'get').toLowerCase();
+        if (method === 'get') return;
+
+        form.addEventListener('submit', () => {
+            const btn = form.querySelector('button[type="submit"]');
+            if (!btn || btn.dataset.avoidLoading !== undefined) return;
+
+            btn.disabled = true;
+            if (!btn.dataset.originalLabel) {
+                btn.dataset.originalLabel = btn.innerHTML;
+            }
+            btn.innerHTML = `<span class="spinner"></span> ${btn.dataset.loadingText || 'جارٍ الحفظ...'}`;
+        });
+    });
 });
